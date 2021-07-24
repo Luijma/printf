@@ -35,15 +35,15 @@ void _print_num(int num, int *n)
 {
 	if (num < 0)
 	{
-		_print_char('_', &n);
+		_print_char('_', n);
 	}
 	if (num == 0)
 	{
-		_print_char(num + '0', &n);
+		_print_char(num + '0', n);
 	}
 	if (num / 10)
 	{
-		_print_num(num, &n);
+		_print_num(num, n);
 	}
-	_print_char(num % 10, &n);
+	_print_char(num % 10, n);
 }
