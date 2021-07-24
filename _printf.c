@@ -6,16 +6,16 @@
  */
 int _printf(const char *format, ...)
 {
-	va_ist args;
+	va_list args;
 	int n = 0;
 	int i = 0;
 
 	va_start(args, format);
 	while (format && format[i])
 	{
-		if (format[i] != %)
+		if (format[i] != '%')
 		{
-			printchar(char format[i], &n);
+			_print_char(format[i], &n);
 		} else
 		{
 			i++;
@@ -24,13 +24,13 @@ int _printf(const char *format, ...)
 				switch (format[i])
 				{
 					case 's':
-						printstring(va_arg args, &n);
+						_print_string(va_arg(args, char *), &n);
 						break;
 					case 'c':
-						printchar(va_arg args, &n);
+						_print_char(va_arg(args, int), &n);
 						break;
 					case '%':
-						printchar('%', &n);
+						_print_char(format[i], &n);
 						break;
 				}
 			}
