@@ -32,6 +32,12 @@ int _printf(const char *format, ...)
 					case '%':
 						_print_char(format[i], &n);
 						break;
+					case 'd':
+						_print_num(va_arg(args, int), &n);
+						break;
+					case 'i':
+						_print_num(va_arg(args, int), &n);
+						break;
 				}
 			}
 		}

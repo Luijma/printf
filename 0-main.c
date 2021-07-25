@@ -7,9 +7,15 @@ int main (void)
 {
 	int n;
 	_printf("Simple Sentence\n");
-	_printf("Not so simple %s\n", "sentence");
+	_printf("Not so simple %s\n\n", "sentence");
+	_printf("_PRINTF:\n");
 	n = _printf("12345\n");
+	_printf("%d\n", n);
+
+	printf("PRINT F:\n");
+	n = printf("12345\n");
 	printf("%d\n", n);
+
 	n = _printf("123%c\n", '4');
 	printf("%d\n", n);
 	return (0);
