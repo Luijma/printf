@@ -45,5 +45,5 @@ void _print_num(int num, int *n)
 	{
 		_print_num(num, n);
 	}
-	_print_char(num % 10, n);
+	_print_char((num % 10) + '0', n);
 }
