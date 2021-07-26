@@ -45,7 +45,7 @@ void _print_num(int num, int *n)
 	}
 	if (num / 10)
 	{
-		_print_num(num, n);
+		_print_num((num / 10), n);
 	}
 	_print_char((num % 10) + '0', n);
 }
@@ -67,10 +67,9 @@ int HandleFormat(int i, int *n, const char *format, va_list args)
 		{
 			case 's':
 				str = va_arg(args, char*);
-				if (str != NULL)
-					_print_string(va_arg(args, char *), n);
-				else
-					_print_string("(null)", n);
+				if (str == NULL)
+					str = "(null)";
+				_print_string(str, n);
 				break;
 			case 'c':
 				_print_char(va_arg(args, int), n);
@@ -87,6 +86,9 @@ int HandleFormat(int i, int *n, const char *format, va_list args)
 			default:
 				return (-1);
 		}
+	} else
+	{
+		return (-1);
 	}
 	return (0);
 }
