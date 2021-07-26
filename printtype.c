@@ -1,8 +1,9 @@
 #include "holberton.h"
 
 /**
- * print_string - print string passed.
- * @str: string passed.
+ * _print_string - print string passed.
+ * @str: string passed
+ * @n: pointer to count
  * Return: 0 if null, 1 if not.
  */
 void _print_string(char *str, int *n)
@@ -17,8 +18,9 @@ void _print_string(char *str, int *n)
 }
 
 /**
- * print_char - print char passed.
+ * _print_char - print char passed.
  * @c: character passed.
+ * @n: print count
  */
 void _print_char(char c, int *n)
 {
@@ -27,7 +29,7 @@ void _print_char(char c, int *n)
 }
 
 /**
- * print_num - print number.
+ * _print_num - print number.
  * @num: number passed.
  * @n: pointer
  */
@@ -46,4 +48,45 @@ void _print_num(int num, int *n)
 		_print_num(num, n);
 	}
 	_print_char((num % 10) + '0', n);
+}
+/**
+ * HandleFormat - handles format specifier and prints
+ * @i: index of format
+ * @n: pointer to count
+ * @format: format for print
+ * @args: list of arguments
+ * Return: -1 on fail, 0 on success
+ */
+int HandleFormat(int i, int *n, const char *format, va_list args)
+{
+	char *str;
+
+	if (format[i])
+	{
+		switch (format[i])
+		{
+			case 's':
+				str = va_arg(args, char*);
+				if (str != NULL)
+					_print_string(va_arg(args, char *), n);
+				else
+					_print_string("(null)", n);
+				break;
+			case 'c':
+				_print_char(va_arg(args, int), n);
+				break;
+			case '%':
+				_print_char(format[i], n);
+				break;
+			case 'd':
+				_print_num(va_arg(args, int), n);
+				break;
+			case 'i':
+				_print_num(va_arg(args, int), n);
+				break;
+			default:
+				return (-1);
+		}
+	}
+	return (0);
 }
