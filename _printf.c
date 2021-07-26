@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int n = 0;
 	int i = 0;
+	char *str;
 
 	va_start(args, format);
 	while (format && format[i])
@@ -24,7 +25,11 @@ int _printf(const char *format, ...)
 				switch (format[i])
 				{
 					case 's':
-						_print_string(va_arg(args, char *), &n);
+						str = va_arg(args, char*);
+						if(str != NULL)
+							_print_string(va_arg(args, char *), &n);
+						else
+							_print_string("(null)", &n);
 						break;
 					case 'c':
 						_print_char(va_arg(args, int), &n);
@@ -38,6 +43,8 @@ int _printf(const char *format, ...)
 					case 'i':
 						_print_num(va_arg(args, int), &n);
 						break;
+					default:
+						return (-1);
 				}
 			}
 		}
