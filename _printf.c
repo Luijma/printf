@@ -10,6 +10,9 @@ int _printf(const char *format, ...)
 	int n = 0;
 	int i = 0;
 
+	if (format == NULL)
+		return (-1);
+
 	va_start(args, format);
 	while (format && format[i])
 	{
@@ -19,23 +22,11 @@ int _printf(const char *format, ...)
 		} else
 		{
 			i++;
-			if (format[i])
-			{
-				switch (format[i])
-				{
-					case 's':
-						_print_string(va_arg(args, char *), &n);
-						break;
-					case 'c':
-						_print_char(va_arg(args, int), &n);
-						break;
-					case '%':
-						_print_char(format[i], &n);
-						break;
-				}
-			}
+			if (HandleFormat(i, &n, format, args) == -1)
+				return (-1);
 		}
 		i++;
 	}
+	va_end(args);
 	return (n);
 }

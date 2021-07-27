@@ -10,5 +10,6 @@ void _print_char(char c, int *n);
 void _print_num(int num, int *n);
 int _printf(const char *format, ...);
 int _putchar(char c);
+int HandleFormat(int i, int *n, const char *format, va_list args);
 
 #endif /* _HOLBERTON_H_ */
