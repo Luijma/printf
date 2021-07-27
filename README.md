@@ -29,3 +29,8 @@ This repository contains all the exercises done in C.
 * Dont forget tu push your header file
 * All your header files should be include guarded
 * Note that we will not provide the putchar function for this project
+
+### Authors
+
+* Luisma
+* Christian Rojas
