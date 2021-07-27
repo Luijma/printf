@@ -38,7 +38,7 @@ void _print_num(int num, int *n)
 	if (num < 0)
 	{
 		_print_char('-', n);
-		*n = -(*n);
+		num = -num;
 	}
 	if (num == 0)
 	{
