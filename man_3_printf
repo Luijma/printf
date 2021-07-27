@@ -1,18 +1,26 @@
-.\" Manpage for printf.
-.TH man 8 "27 Jul 2021" "1.0" "printf man page"
+.\" Man page_printf
+.TH _printf 1 "27 Jul 2021" "1.0" "_printf man page"
 .SH NAME
-printf
+_printf
 .SH SYNOPSIS
-#include "holberton.h"
-
-int printf(const char *restrict format, ...);
+int printf(const char *format, ...);
 .SH DESCRIPTION
-Print ARGUMENTS(s) according to FORMAT, or execute according to OPTION:
-.SH OPTIONS
-The printf does not take any options. However, you can supply username.
-.SH SEE ALSO
-printf(8), passwd(5), printf.debian(8) 
-.SH BUGS
-No known bugs.
+
+format modifiers:
+
+	%c	prints a character
+
+	%s	prints a string
+
+	%d	prints a integer
+
+	%i	prints a integer
+
+Function receives the above format modifiers as input and outputs accordingly.
+
+NOTE: Function in progress
+
 .SH AUTHOR
-Vivek Gite (vivek@nixcraft.net.in)
+Written by Luis Rivera / Christian Rojas
+.SH SEE ALSO
+man printf(1)
