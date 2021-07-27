@@ -35,20 +35,22 @@ void _print_char(char c, int *n)
  */
 void _print_num(int num, int *n)
 {
+	unsigned int unum;
 	if (num < 0)
 	{
 		_print_char('-', n);
-		num = -num;
-	}
-	if (num == 0)
+		unum = num * (-1);
+	} else
+		unum = num;
+	if (unum == 0)
 	{
 		_print_char('0', n);
 	}
-	if (num / 10)
+	if (unum / 10)
 	{
-		_print_num((num / 10), n);
+		_print_num((unum / 10), n);
 	}
-	_print_char((num % 10) + '0', n);
+	_print_char((unum % 10) + '0', n);
 }
 /**
  * HandleFormat - handles format specifier and prints
