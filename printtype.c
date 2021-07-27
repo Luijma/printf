@@ -38,10 +38,11 @@ void _print_num(int num, int *n)
 	if (num < 0)
 	{
 		_print_char('-', n);
+		*n = -(*n);
 	}
 	if (num == 0)
 	{
-		_print_char(num + '0', n);
+		_print_char('0', n);
 	}
 	if (num / 10)
 	{
@@ -61,7 +62,7 @@ int HandleFormat(int i, int *n, const char *format, va_list args)
 {
 	char *str;
 
-	if (format[i])
+	if (format && format[i])
 	{
 		switch (format[i])
 		{
@@ -84,7 +85,14 @@ int HandleFormat(int i, int *n, const char *format, va_list args)
 				_print_num(va_arg(args, int), n);
 				break;
 			default:
-				return (-1);
+				if(format[i] != '\0')
+				{
+					i--;
+					_print_char(format[i], n);
+					i++;
+					_print_char(format[i], n);
+				} else
+					return (-1);
 		}
 	} else
 	{
