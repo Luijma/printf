@@ -94,7 +94,8 @@ int HandleFormat(int i, int *n, const char *format, va_list args)
 				} else
 					return (-1);
 		}
-	} else
+	}
+	else
 	{
 		return (-1);
 	}
