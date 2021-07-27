@@ -85,7 +85,7 @@ int HandleFormat(int i, int *n, const char *format, va_list args)
 				_print_num(va_arg(args, int), n);
 				break;
 			default:
-				if(format[i] != '\0')
+				if (format[i] != '\0')
 				{
 					i--;
 					_print_char(format[i], n);
