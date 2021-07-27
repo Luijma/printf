@@ -51,5 +51,7 @@ int main(void)
     printf("\n7 _printf: %d \n", l2);
     putchar('\n');
 
+	_printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 10", " hey  plz", '\n');
+
     return (0);
 }
