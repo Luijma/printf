@@ -50,8 +50,6 @@ void _print_num(int num, int *n)
 		_print_num((unum / 10), n);
 	}
 	_print_char((unum % 10) + '0', n);
-	if(unum == INT_MAX || unum == INT_MIN)
-		*n -= 1;
 }
 /**
  * HandleFormat - handles format specifier and prints
